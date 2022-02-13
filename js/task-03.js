@@ -12,16 +12,14 @@ const images = [
     alt: 'Group of Horses Running',
   },
 ];
-const ulEl = document.querySelector('.gallery');
-ulEl.setAttribute('style', 'display: flex; align-items: center; justify-content: flex-start;');
-console.log(ulEl);
+const gallery = document.querySelector('.gallery');
+gallery.setAttribute('style', 'display: flex; align-items: center; justify-content: flex-start;');
 
-images.forEach(el => {
-  ulEl.insertAdjacentHTML('afterbegin',
-    `<li style="list-style: none;
+const galleryItems = images.map(el => {
+    return `<li style="list-style: none;
     align-items: center;
     justify-content: center;  
-  " ><img src = "${el.url}" alt = "${el.alt}"  width = "150" height = "100"  /></li>`
-    
-  );
+  " ><img src = "${el.url}" alt = "${el.alt}"  width = "150" height = "100"/></li>`
 });
+
+gallery.insertAdjacentHTML('afterbegin', galleryItems.join(''));

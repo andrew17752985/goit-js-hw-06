@@ -1,21 +1,17 @@
-let valueEl = Number(document.querySelector('#value').textContent);
 
-let counterValue = document.querySelector('#value');
+const dekrBtn = document.querySelector('button[data-action="decrement"]');
+const inkrBtn = document.querySelector('button[data-action="increment"]');
 
-const dekrBtn = document.querySelector('#counter').firstElementChild;
-const inkrBtn = document.querySelector('#counter').lastElementChild;
+const value = document.querySelector('#value');
 
-inkrBtn.addEventListener('click', event => {
-  // console.log("Вешаю слушателя события на целевую кнопку");
-  valueEl += 1;
+let counterValue = 0;
 
-  counterValue.innerText = valueEl;
+inkrBtn.addEventListener('click', () => {
+  counterValue += 1;
+  value.innerText = counterValue;
 });
 
-dekrBtn.addEventListener('click', event => {
-  // console.log("Снимаю слушателя события с целевой кнопки");
-  valueEl -= 1;
-
-  counterValue.innerText = valueEl;
-  // console.log("counterValue", counterValue);
+dekrBtn.addEventListener('click', () => {
+  counterValue -= 1;
+  value.innerText = counterValue;
 });

@@ -2,9 +2,11 @@ const textEl = document.getElementById("text");
 
 const inputEl = document.getElementById("font-size-control");
 
-inputEl.addEventListener("input", (e) => {
+textEl.style.fontSize = inputEl.value + 'px';
+
+inputEl.addEventListener("input", () => {
   const size = inputEl.value;
-  // console.log(size);
+  console.log(size);
 
   textEl.style.fontSize = size + "px";
 });
